@@ -7,6 +7,7 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
     <p>welcome to toky++ 1.0.1, whats new?</p>
     <ul>
         <li>toky++ is now open source!<br>
+        <a href="https://gitlab.com/miniwa/tokyplusplus">https://gitlab.com/miniwa/tokyplusplus</a><br>
         this was mainly done to prove the trolls saying it was an ip grabber wrong.<br>
         also, you can now host your own toky++ instance if this one is too slow?<br>
         oh. and the whole "fixing my terrible code for me" thing. :^)</li>

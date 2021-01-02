@@ -8,9 +8,11 @@ if (!isset($_COOKIE["theme"]) || $_COOKIE["theme"] == "") {
 	setcookie("theme", "default", time() + (86400 * 365), "/");
 	$_COOKIE["theme"] = "default";
 }
-if (!isset($_COOKIE["version"]) || $_COOKIE["version"] != "1.0") {
-	setcookie("version", "1.0", time() + (86400 * 365), "/");
-	$_COOKIE["version"] = "1.0";
+if (!isset($_COOKIE["version"]) || $_COOKIE["version"] != "1.0.1") {
+	setcookie("version", "1.0.1", time() + (86400 * 365), "/");
+	$_COOKIE["version"] = "1.0.1";
+	echo "<script>window.location.href = '/news/';</script>";
+	die();
 }
 ?>
 
