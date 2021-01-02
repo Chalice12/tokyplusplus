@@ -32,6 +32,10 @@ foreach ($questions as $key => $value) {
 			$ok = false;
 		}
 	}
+	if ($value["userUserAgent"] == "dickinyourass") {
+		echo "Likely spam auto-blocked";
+		$ok = false;
+	}
 	if ($ok == false) continue;
 	echo "<a href='/answerspecific/?num=".$value["id"]."&id=".$value["user"]["id"]."&text=".htmlspecialchars($value["text"])."&nickname=".$value["user"]["nickname"]."&date=".$value["date"]."&qid=".$value["id"]."'><div class='listquestion ". ($key % 2 == 0 ? "listquestionaltbg" : "") ."'>";
 	echo "<div class='listquestionuser'><span>";

@@ -32,6 +32,8 @@ foreach (explode(",", @$_COOKIE["blocklist"]) as $swag) {
 }
 if ($ok == false) {
 	echo "question from blocked user, please press skip!";
+} else if ($value["userUserAgent"] == "dickinyourass") {
+	echo "Likely spam auto-blocked, please press skip!";
 } else {
 echo "<div id='chat_container' style='flex-direction: column; overflow-y: unset;'>";
 echo "<div class='listquestion'>";

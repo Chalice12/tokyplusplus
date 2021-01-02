@@ -1,4 +1,12 @@
 <?php
+if(!isset($_SERVER["HTTPS"]) || $_SERVER["HTTPS"] != "on")
+{
+    //Tell the browser to redirect to the HTTPS URL.
+    header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"], true, 301);
+    //Prevent the rest of the script from executing.
+    exit;
+}
+
 include_once($_SERVER['DOCUMENT_ROOT'].'/api/toky.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/api/stupid.php');
 if (!isset($_COOKIE["toky_cookie"]) || $_COOKIE["toky_cookie"] == "") {
