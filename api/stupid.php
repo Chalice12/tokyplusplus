@@ -6,6 +6,8 @@ function get_operating_system($ua)
  
     $os_a =  array
     (
+            '/PlayStation 4/i'      =>  'Playstation 4',
+            '/PlayStation Vita/i'   =>  'Playstation Vita',
 			'/CrOS/i'               =>  'Chrome OS',
 			'/windows nt 6.3/i'     =>  'Windows 8.1',
             '/windows nt 10.0/i'    =>  'Windows 10',

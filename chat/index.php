@@ -31,7 +31,7 @@ foreach ($questions as $key => $value) {
 		$time = date_parse($value["date"]);
 		echo "</span><span>". substr($time["year"],2) . "-" . str_pad($time["month"], 2, "0", STR_PAD_LEFT) . "-" . str_pad($time["day"], 2, "0", STR_PAD_LEFT) . " " . str_pad($time["hour"], 2, "0", STR_PAD_LEFT) . ":" . str_pad($time["minute"], 2, "0", STR_PAD_LEFT) ." UTC</span>";
 	echo "</div>";
-	echo "<div class='listquestiontext'><p>". $value["text"] ."</p></div>";
+	echo "<div class='listquestiontext'><p>". htmlspecialchars($value["text"]) ."</p></div>";
 	echo "<div class='listquestionetc'>";
 	    echo "<span>reply id. " . $value["id"] . " - </span>";
 		echo "<span>" . ($value["user"]["isOnline"] == true ? "<span style='color: lightgreen;'>user online</span>" : "<span style='color: lightcoral';>user offline</span>") . "</span>";

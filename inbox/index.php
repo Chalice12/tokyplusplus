@@ -34,8 +34,8 @@ foreach ($questions as $key => $value) {
 		$time = date_parse($value["lastInteractionDate"]);
 		echo "</span><span>". substr($time["year"],2) . "-" . str_pad($time["month"], 2, "0", STR_PAD_LEFT) . "-" . str_pad($time["day"], 2, "0", STR_PAD_LEFT) . " " . str_pad($time["hour"], 2, "0", STR_PAD_LEFT) . ":" . str_pad($time["minute"], 2, "0", STR_PAD_LEFT) ." UTC</span>";
 	echo "</div>";
-	echo "<div class='listquestiontext'><p style='margin-bottom: 0;'>your question: <b>". $value["title"] ."</b></p></div>";
-	echo "<div class='listquestiontext'><p style='margin-top: 0;'>latest answer: <b>". $value["lastChatText"] ."</b></p></div>";
+	echo "<div class='listquestiontext'><p style='margin-bottom: 0;'>your question: <b>". htmlspecialchars($value["title"]) ."</b></p></div>";
+	echo "<div class='listquestiontext'><p style='margin-top: 0;'>latest answer: <b>". htmlspecialchars($value["lastChatText"]) ."</b></p></div>";
 	echo "<div class='listquestionetc'>";
 	    echo "<span>answer id. " . $value["answerId"] . " - </span>";
 		echo "<span>" . ($value["users"][0]["isOnline"] == true ? "<span style='color: lightgreen;'>user online</span>" : "<span style='color: lightcoral';>user offline</span>") . "</span>";

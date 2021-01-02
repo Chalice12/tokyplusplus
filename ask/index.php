@@ -1,6 +1,11 @@
 <?php
 $menu = "ask";
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
+
+if ($_SERVER ['HTTP_USER_AGENT'] == "hunter2") {
+	echo "please go away (please)";
+	die();
+}
 ?>
 
 <h2 style="margin-top: 0; padding-top: 1rem;">Send a question</h2>
@@ -9,6 +14,9 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
 $error = false;
 if (isset($_POST["text"])) {
 	$text = $_POST["text"];
+	if( strpos( $text, "njggers" ) !== false) {
+		die();
+	}
     if (isset($_POST["sig"]) && $_POST["sig"] == "on") {
 		$text = $text . "\n\nSent with toky++ ";
 		$sel = array("because i'm better than you", "cause im a purple ninja and im so cool", "aka the greatest thing on planet earth", "and i also stan technoblade", "/hj", "and i selected the 'send with toky++ signature' option for some reason", "owo!!!", "so free advertising for toky++ wooooo", "nerd");

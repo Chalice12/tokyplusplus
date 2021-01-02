@@ -14,7 +14,7 @@ echo "<div class='listquestionuser'><span>";
 	@$time = date_parse($_GET["date"]);
 	echo "</span><span>". substr($time["year"],2) . "-" . str_pad($time["month"], 2, "0", STR_PAD_LEFT) . "-" . str_pad($time["day"], 2, "0", STR_PAD_LEFT) . " " . str_pad($time["hour"], 2, "0", STR_PAD_LEFT) . ":" . str_pad($time["minute"], 2, "0", STR_PAD_LEFT) ." UTC</span>";
 echo "</div>";
-echo "<div class='listquestiontext'><p>". $_GET["text"] ."</p></div>";
+echo "<div class='listquestiontext'><p>". htmlspecialchars($_GET["text"]) ."</p></div>";
 echo "<div class='listquestionetc'>";
     echo "<span>question no. " . @$_GET["qid"] . " - specific answer mode, less info provided... sorry :(</span>";
 echo "</div>";

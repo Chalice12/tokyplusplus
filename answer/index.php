@@ -42,7 +42,7 @@ echo "<div class='listquestionuser'><span>";
 	$time = date_parse($questions["date"]);
 	echo "</span><span>". substr($time["year"],2) . "-" . str_pad($time["month"], 2, "0", STR_PAD_LEFT) . "-" . str_pad($time["day"], 2, "0", STR_PAD_LEFT) . " " . str_pad($time["hour"], 2, "0", STR_PAD_LEFT) . ":" . str_pad($time["minute"], 2, "0", STR_PAD_LEFT) ." UTC</span>";
 echo "</div>";
-echo "<div class='listquestiontext'><p>". $questions["text"] ."</p></div>";
+echo "<div class='listquestiontext'><p>". htmlspecialchars($questions["text"]) ."</p></div>";
 echo "<div class='listquestionetc'>";
     echo "<span>question no. " . $questions["id"] . " - </span>";
 	echo "<span>" . ($questions["user"]["isOnline"] == true ? "<span style='color: lightgreen;'>user online</span>" : "<span style='color: lightcoral';>user offline</span>") . " - </span>";
