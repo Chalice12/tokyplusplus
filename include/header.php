@@ -8,9 +8,9 @@ if (!isset($_COOKIE["theme"]) || $_COOKIE["theme"] == "") {
 	setcookie("theme", "default", time() + (86400 * 365), "/");
 	$_COOKIE["theme"] = "default";
 }
-if (!isset($_COOKIE["version"]) || $_COOKIE["version"] != "1.1") {
-	setcookie("version", "1.1", time() + (86400 * 365), "/");
-	$_COOKIE["version"] = "1.1";
+if (!isset($_COOKIE["version"]) || $_COOKIE["version"] != "1.2") {
+	setcookie("version", "1.2", time() + (86400 * 365), "/");
+	$_COOKIE["version"] = "1.2";
 	echo "<script>window.location.href = '/news/';</script>";
 	die();
 }
@@ -38,6 +38,9 @@ if (is_phone($_SERVER['HTTP_USER_AGENT']) == "true") {
 ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="meta/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="meta/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="meta/favicon-96x96.png" sizes="96x96">
 </head>
 <body>
 <header>

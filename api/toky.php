@@ -155,4 +155,30 @@ function set_auth_cookies() {
 	$_COOKIE["blocklist"] = "";
 }
 
+function log_in($email, $pw) {
+	$data = array('grantType' => 'password', 'userEmail' => $email, 'userPassword' => $pw);
+	$options = array(
+		'http' => array(
+			'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+			'method'  => 'POST',
+			'content' => http_build_query($data)
+		)
+	);
+	$context  = stream_context_create($options);
+	$result = file_get_contents("https://toky.chat/api/v2/brandcategories/1/token?grantType=password&userEmail=".$email."&userPassword=".$pw, false, $context);
+	if ($http_response_header[0] != "HTTP/1.1 200 OK") {
+		return "piss";
+	}
+	setcookie("toky_cookie", substr($http_response_header[11], 12) . "; " . substr($http_response_header[12], 12), time() + (86400 * 365), "/");
+	$_COOKIE["toky_cookie"] = substr($http_response_header[11], 12) . "; " . substr($http_response_header[12], 12);
+	setcookie("toky_auth_unused", $result, time() + (86400 * 365), "/");
+	$_COOKIE["toky_auth_unused"] = $result;
+	return "true";
+	//return array(json_decode($result, true), substr($http_response_header[10], 12));
+	//setcookie("toky_cookie", substr($http_response_header[10], 12), time() + (86400 * 365), "/");
+	//$_COOKIE["toky_cookie"] = substr($http_response_header[10], 12);
+
+	//islogged=;
+}
+
 ?>
