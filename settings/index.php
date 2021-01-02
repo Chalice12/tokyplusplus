@@ -4,9 +4,8 @@ $menu = "settings";
 if (isset($_POST["username"]) && isset($_POST["password"])) {
   include_once($_SERVER['DOCUMENT_ROOT'].'/api/toky.php');
   if (log_in($_POST["username"], $_POST["password"]) == "true") {
-    echo "you're probably logged in now!<br>";
+    echo "you're now logged in!<br>";
     echo "<a href='/'>go back home</a><br>";
-    echo "if things break, reset in settings.";
   } else {
     echo "that didnt work :(<br>";
     echo "<a href='/settings/'>go back to settings</a><br>";
@@ -46,8 +45,10 @@ form {
   <option value="Material" <?php echo @$_COOKIE["theme"] == "material" ? "selected" : "" ?>>Material</option>
 </select>
 </p>
-
 <h2>Toky.chat login</h2>
+<?php if (strpos(@$_COOKIE["toky_cookie"], "islogged") !== false) : ?>
+<p>You're logged in! :)<br><br>
+<?php else : ?>
 <p>Log in with your toky.chat account?<br><br>
 <form action="/settings/" method="post">
   <input type="email" name="username" placeholder="Email"><br><br>
@@ -55,6 +56,7 @@ form {
   <input type="submit" value="Log in">
 </form>
 <p>toky++ or miniwa.space does NOT store your toky.chat username or password server-side.<br>If you dont trust me, check the source code.</p>
+<?php endif; ?>
 </p>
 
 <h2>Reset identity</h2>

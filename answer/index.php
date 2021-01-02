@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST["block"])) {
+if (isset($_POST["block"]) && @$_POST["words"] == "") {
 	setcookie("blocklist", @$_COOKIE["blocklist"].",".$_GET["uid"], time() + (86400 * 365), "/");
 	echo "<script>window.location = '/';</script>";
 }
