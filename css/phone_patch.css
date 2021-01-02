@@ -1,9 +1,9 @@
 main {
-    min-height: calc(100vh - 14rem);
+    min-height: calc(100vh - 16rem);
 }
 
 #chat_container {
-    height: calc(100vh - 17rem);
+    height: calc(100vh - 19rem);
 }
 
 footer {

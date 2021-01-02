@@ -22,6 +22,14 @@ text-align: center;
 <button id="debugmode" onclick="toggleDebug()"><?php echo @$_COOKIE["debug"] == "true" ? "Toggle off" : "Toggle on"; ?></button>
 </p>
 
+<h2>Theme</h2>
+<p>Set a theme!<br><br>
+<select onchange="changeTheme()" id="theme">
+  <option value="Default" <?php echo @$_COOKIE["theme"] == "default" ? "selected" : "" ?>>Default</option>
+  <option value="Material" <?php echo @$_COOKIE["theme"] == "material" ? "selected" : "" ?>>Material</option>
+</select>
+</p>
+
 <h2>Reset identity</h2>
 <p>Wanna start fresh? This button will turn you into a new anon, and remove all your chat logs, along with your blocklist.<br><br>
 <button style="color: red;" onclick="reset()">Reset</button>
@@ -86,6 +94,11 @@ function reset()
 	deleteCookie("toky_cookie");
 	deleteCookie("blocklist");
     window.location = "/"; // TO REFRESH THE PAGE
+}
+
+function changeTheme() {
+  setCookie("theme", document.getElementById("theme").options[document.getElementById("theme").selectedIndex].text.toLowerCase(), 365);
+  window.location = "/settings/";
 }
 </script>
 

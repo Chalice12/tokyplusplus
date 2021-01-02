@@ -8,9 +8,9 @@ if (!isset($_COOKIE["theme"]) || $_COOKIE["theme"] == "") {
 	setcookie("theme", "default", time() + (86400 * 365), "/");
 	$_COOKIE["theme"] = "default";
 }
-if (!isset($_COOKIE["version"]) || $_COOKIE["version"] != "1.0.1") {
-	setcookie("version", "1.0.1", time() + (86400 * 365), "/");
-	$_COOKIE["version"] = "1.0.1";
+if (!isset($_COOKIE["version"]) || $_COOKIE["version"] != "1.1") {
+	setcookie("version", "1.1", time() + (86400 * 365), "/");
+	$_COOKIE["version"] = "1.1";
 	echo "<script>window.location.href = '/news/';</script>";
 	die();
 }
@@ -21,20 +21,17 @@ if (!isset($_COOKIE["version"]) || $_COOKIE["version"] != "1.0.1") {
 <head>
 <title>TOKY++ web edishun</title>
 <link rel="stylesheet" href="/css/normalize.css">
-<style><?php echo file_get_contents($_SERVER['DOCUMENT_ROOT'].'/css/main.css'); ?></style>
-<style><?php if (@$_COOKIE["dark"] == "true") echo file_get_contents($_SERVER['DOCUMENT_ROOT'].'/css/dark.css'); ?></style>
-<style>
-@media (prefers-color-scheme: dark) {
-<?php echo file_get_contents($_SERVER['DOCUMENT_ROOT'].'/css/dark.css'); ?>
-p#darkmodep::after {
-    content: 'System-wide dark mode enabled, so you cannot disable it from here.';
-}
-#darkmode {
-	display: none;
-}
-}
-</style>
 <?php
+switch ($_COOKIE["theme"]) {
+	case "default":
+		include_once($_SERVER['DOCUMENT_ROOT'].'/include/theme_default.php');
+		break;
+	case "material":
+		include_once($_SERVER['DOCUMENT_ROOT'].'/include/theme_material.php');
+		break;
+	default:
+		include_once($_SERVER['DOCUMENT_ROOT'].'/include/theme_default.php');
+}
 if (is_phone($_SERVER['HTTP_USER_AGENT']) == "true") {
 	echo "<style>".file_get_contents($_SERVER['DOCUMENT_ROOT'].'/css/phone_patch.css')."</style>";
 }
