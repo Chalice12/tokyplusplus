@@ -1,0 +1,12 @@
+main {
+    min-height: calc(100vh - 14rem);
+}
+
+#chat_container {
+    height: calc(100vh - 17rem);
+}
+
+footer {
+	font-size: 0.8rem;
+	margin-top: 0.4rem;
+}
