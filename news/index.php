@@ -8,7 +8,8 @@ include_once($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
     <ul>
         <li>you can now log in to your toky.chat account! go try it out in the settings :)</li>
     </ul>
-    <h3>past versions:</h3>
+    <h3>past versions:<br>
+<span style="font-size: 0.8rem">(on mobile, scroll right)</span></h3>
     <ul>
         <li>1.1</li>
         <li>themes! - go check them out in the settings menu.<br>though, there are only two so far...<br>also, dark mode is available, if you didnt already know!</li><br>
