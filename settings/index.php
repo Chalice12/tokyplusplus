@@ -43,6 +43,7 @@ form {
 <select onchange="changeTheme()" id="theme">
   <option value="Default" <?php echo @$_COOKIE["theme"] == "default" ? "selected" : "" ?>>Default</option>
   <option value="Material" <?php echo @$_COOKIE["theme"] == "material" ? "selected" : "" ?>>Material</option>
+  <option value="Contrast" <?php echo @$_COOKIE["theme"] == "contrast" ? "selected" : "" ?>>Contrast</option>
 </select>
 </p>
 <h2>Toky.chat login</h2>

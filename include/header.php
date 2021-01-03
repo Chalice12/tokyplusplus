@@ -37,6 +37,9 @@ switch ($_COOKIE["theme"]) {
 	case "material":
 		include_once($_SERVER['DOCUMENT_ROOT'].'/include/theme_material.php');
 		break;
+	case "contrast":
+		include_once($_SERVER['DOCUMENT_ROOT'].'/include/theme_contrast.php');
+		break;
 	default:
 		include_once($_SERVER['DOCUMENT_ROOT'].'/include/theme_default.php');
 }

@@ -2,7 +2,14 @@
 $menu = "inbox";
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/header.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/api/stupid.php');
-$questions = get_chats();
+
+$page = "0";
+
+if (isset($_GET["page"])) {
+	$page = $_GET["page"];
+}
+
+$questions = get_chats($page);
 
 if (@$_COOKIE["debug"] == "true") {
 echo "<pre class='debuginfo'>";
@@ -30,7 +37,8 @@ foreach ($questions as $key => $value) {
 	if ($ok == false) continue;
 	echo "<a href='/chat/?who=".$value["id"]."'><div class='listquestion ". ($key % 2 == 0 ? "listquestionaltbg" : "") ."'>";
 	echo "<div class='listquestionuser'><span>";
-	    echo $value["users"][0]["nickname"] == "" ? "Anon <span style='font-weight: 300; font-size: 0.7rem;'>" . $value["users"][0]["id"] . "</span>" : $value["users"][0]["nickname"];
+		echo $value["users"][0]["nickname"] == "" ? "Anon" : $value["users"][0]["nickname"];
+		echo "<span style='font-weight: 300; font-size: 0.7rem;'> " . $value["users"][0]["id"] . "</span>";
 		$time = date_parse($value["lastInteractionDate"]);
 		echo "</span><span>". substr($time["year"],2) . "-" . str_pad($time["month"], 2, "0", STR_PAD_LEFT) . "-" . str_pad($time["day"], 2, "0", STR_PAD_LEFT) . " " . str_pad($time["hour"], 2, "0", STR_PAD_LEFT) . ":" . str_pad($time["minute"], 2, "0", STR_PAD_LEFT) ." UTC</span>";
 	echo "</div>";
@@ -42,6 +50,23 @@ foreach ($questions as $key => $value) {
 	echo "</div>";
 	echo "</div></a>";
 }
+
+echo "<div style='justify-content: space-around; max-width: 32rem; width: 100%; display: flex; margin: auto;'>";
+if (isset($_GET["page"]) && $_GET["page"] != "0") {
+	echo "<a href='/inbox?page=";
+	echo (int) $page - 1;
+	echo "'>Back one page</a>";
+} else {
+	echo "<a>Back no pages</a>";
+}
+
+echo "Page " . $page;
+
+echo "<a href='/inbox?page=";
+echo (int) $page + 1;
+echo "'>Forward one page</a>";
+echo "</div>";
+
 
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/footer.php');
 ?>

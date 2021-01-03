@@ -27,7 +27,8 @@ $user2 = $questions[1]["user"]["id"];
 foreach ($questions as $key => $value) {
 	echo "<div class='listquestion ". ($value["user"]["id"] == $user1 ? "listquestionaltbg" : "") ."'>";
 	echo "<div class='listquestionuser'><span>";
-	    echo $value["user"]["nickname"] == "" ? "Anon <span style='font-weight: 300; font-size: 0.7rem;'>" . $value["user"]["id"] . "</span>" : $value["user"]["nickname"];
+		echo $value["user"]["nickname"] == "" ? "Anon" : $value["user"]["nickname"];
+		echo "<span style='font-weight: 300; font-size: 0.7rem;'> " . $value["user"]["id"] . ($value["user"]["id"] == "33498" ? " ☆" : "") . "</span>";
 		$time = date_parse($value["date"]);
 		echo "</span><span>". substr($time["year"],2) . "-" . str_pad($time["month"], 2, "0", STR_PAD_LEFT) . "-" . str_pad($time["day"], 2, "0", STR_PAD_LEFT) . " " . str_pad($time["hour"], 2, "0", STR_PAD_LEFT) . ":" . str_pad($time["minute"], 2, "0", STR_PAD_LEFT) ." UTC</span>";
 	echo "</div>";

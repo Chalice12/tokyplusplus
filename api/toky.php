@@ -18,11 +18,11 @@ function get_questions($num, $page) {
 	), true);
 }
 
-function get_chats() {
+function get_chats($page) {
     global $getopts;
     $context = stream_context_create($getopts);
     return json_decode(file_get_contents(
-	  "https://toky.chat/api/v2/brandcategories/1/chats?isBrandRestricted=true&page=0",
+	  "https://toky.chat/api/v2/brandcategories/1/chats?isBrandRestricted=true&page=".$page,
 	  false, $context
 	), true);
 }

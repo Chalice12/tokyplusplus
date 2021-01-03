@@ -1,0 +1,18 @@
+  :root {
+      --main: #ee6e73;
+      --sub:  #CFA2E4;
+      --warn: #F5E960;
+      --info: #55D6C2;
+      --bg:   #000000;
+      --bg2:  #333333;
+      --text: #FFFFFF;
+  }
+
+button, input, textarea {
+	background-color: var(--bg2);
+	color: var(--text);
+}
+
+#chat_container p a {
+	color: lightblue;
+}

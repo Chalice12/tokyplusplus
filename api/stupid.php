@@ -31,7 +31,8 @@ function get_operating_system($ua)
             '/ipad/i'               =>  'iPad',
             '/android/i'            =>  'Android',
             '/blackberry/i'         =>  'BlackBerry',
-            '/webos/i'              =>  'Mobile'
+            '/webos/i'              =>  'Mobile',
+            '/New Nintendo 3DS/i'   =>  'New Nintendo 3DS'
         );
  
     foreach ($os_a as $key => $value) { 

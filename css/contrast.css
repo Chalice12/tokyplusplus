@@ -1,0 +1,26 @@
+@font-face {
+    font-family: od;
+    src: url("/css/not_bitch.otf"); /* creds to opendyslexic */
+  }
+  
+  :root {
+      --main: #ee6e73;
+      --sub:  #CFA2E4;
+      --warn: #F5E960;
+      --info: #55D6C2;
+      --bg:   #FFFFFF;
+      --bg2:  #DDDDDD;
+      --text: #000000;
+  }
+  
+  body {
+      font-family: od;
+  }
+  .textareashake {
+      animation: none;
+      border: 1px solid red;
+  }
+
+footer a {
+	color: blue !important;
+}
