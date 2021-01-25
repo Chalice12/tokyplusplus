@@ -74,13 +74,13 @@ if (isset($_POST["text"])) {
         window.history.replaceState( null, null, window.location.href );
     }
 </script>
-
+<!--
 <h2>Past questions</h2>
 
 <pre style="width: 80%; margin: auto;">
 <?php echo isset($_COOKIE['past_questions']) ? $_COOKIE['past_questions'] : "None :("; ?>
 </pre>
-
+-->
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/include/footer.php');
 ?>
